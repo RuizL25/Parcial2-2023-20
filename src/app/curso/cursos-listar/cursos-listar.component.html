@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Plataforma</th>
+      <th scope="col">Lanzamineto</th>
+      <th scope="col">Duración (h)</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of cursos" >
+      <th scope="row">{{c.id}}</th>
+      <td>{{c.title}}</td>
+      <td>{{c.platform}}</td>
+      <td>{{c.launch_year}}</td>
+      <td>{{c.duration_hours}}</td>
+    </tr>
+  </tbody>
+</table>
