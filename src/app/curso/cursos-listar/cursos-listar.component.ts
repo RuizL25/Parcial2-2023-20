@@ -19,19 +19,19 @@ export class CursosListarComponent implements OnInit {
   getCursos(){
     this.cursoService.getCursos().subscribe(cursos => {
       this.cursos = cursos;
-      this.getCursosCertificado()
+      for (let index = 0; index < this.cursos.length; index++) {
+        if (this.cursos[index].offers_certificate == true) {
+          this.certificados += " " + this.cursos[index].id + ",";
+        }
+      };
+      this.certificados = this.certificados.slice(0, -1);
+      this.certificados += " ofrecen certificado";
     });
   }
 
-  getCursosCertificado(){
-    for (let index = 0; index < this.cursos.length; index++) {
-      if (this.cursos[index].offers_certificate == true) {
-        this.certificados += " " + this.cursos[index].id + ",";
-      }
-    };
-    this.certificados = this.certificados.slice(0, -1);
-    this.certificados += " ofrecen certificado";
-  }
+  // getCursosCertificado(){
+    
+  // }
 
   onSelectSerie(curso: Curso) {
     this.selectedCurso = curso;

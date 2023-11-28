@@ -1,0 +1,10 @@
+<div class="card" style="width: 20rem;">
+  <img class="card-img-top" src="{{cursoDetalle.image}}" style="height: auto;">
+  <div class="card-body">
+      <h1 class="card-title" style="font-size: larger;">{{cursoDetalle.title}}</h1>
+      <p>{{cursoDetalle.description}}</p>
+
+      <div *ngIf="cursoDetalle.offers_certificate; else elseBlock" style="color: green;">Sí ofrece certificado</div>
+      <ng-template #elseBlock style="color: red;">No ofrece certificado</ng-template>
+  </div>
+</div>

@@ -2,29 +2,29 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { faker } from '@faker-js/faker';
-
-
 import { HttpClientModule } from '@angular/common/http';
-import { CursosListarComponent } from './cursos-listar.component';
+
+
+import { CursoDetalleComponent } from './curso-detalle.component';
 import { Curso } from '../curso';
+import faker from '@faker-js/faker';
 
-describe('CursosListarComponent', () => {
-  let component: CursosListarComponent;
-  let fixture: ComponentFixture<CursosListarComponent>;
+describe('CursoDetalleComponent', () => {
+  let component: CursoDetalleComponent;
+  let fixture: ComponentFixture<CursoDetalleComponent>;
   let debug: DebugElement;
-
+  
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      declarations: [ CursosListarComponent ]
+      declarations: [ CursoDetalleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CursosListarComponent);
+    fixture = TestBed.createComponent(CursoDetalleComponent);
     component = fixture.componentInstance;
 
     let testCursos : Array<Curso> = []
@@ -41,7 +41,7 @@ describe('CursosListarComponent', () => {
         faker.datatype.number())
     }
 
-    component.cursos = testCursos;
+    component.cursoDetalle = testCursos[0];
     fixture.detectChanges();
     debug = fixture.debugElement;
   });

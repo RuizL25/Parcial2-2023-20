@@ -1,24 +1,50 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Plataforma</th>
-      <th scope="col">Lanzamineto</th>
-      <th scope="col">Duración (h)</th>
+<header style="background-color: lightgreen; padding: 15px 0;">
+  <nav >
+      <div class="container-fluid">
+          <h1 class="titulo-proyecto" style="display: flex; justify-content: center; font-size: larger; font-family: Arial, sans-serif;  text-align: center; ">Cursos en línea</h1>
+      </div>
+  </nav>
+</header>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let c of cursos" >
-      <th scope="row">{{c.id}}</th>
-      <td>{{c.title}}</td>
-      <td>{{c.platform}}</td>
-      <td>{{c.launch_year}}</td>
-      <td>{{c.duration_hours}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container" style="margin: 10px;">
+  <div class="row">
+      <div class="col-sm-6">
+          <table class="table" id="cursos">
+  
+              <thead style="background-color: rgb(230, 230, 230);">
+                  <tr>
+                      <th><b>#</b></th>
+                      <th><b>Nombre</b></th>
+                      <th><b>Plataforma</b></th>
+                      <th><b>Lanzamiento</b></th>
+                      <th><b>Duración (h)</b></th>
+                  </tr>
+              </thead> 
 
-<div>
+              <tbody class="table-active">
+                <tr *ngFor="let c of cursos" (click)="onSelectSerie(c)">
+                  <td><b>{{c.id}}</b></td>
+                  <td>
+                    <dd><a href={{c.platform}}>{{c.title}}</a></dd>
+                    <style>
+                      a {
+                        text-decoration: none;
+                      }
+                      </style>
+                  </td>
+                  <td>{{c.platform}}</td>
+                  <td>{{c.launch_year}}</td>
+                  <td>{{c.duration_hours}}</td>
+                </tr>
+              </tbody>
+      
+          </table>
+          <p>{{certificados}}</p>
+        </div>
+        <div class = "col-md-6" *ngIf="selectedCurso" >
+          <app-curso-detalle [cursoDetalle]="selectedCurso"></app-curso-detalle>
+        </div>
+  </div>
 </div>
+
+
